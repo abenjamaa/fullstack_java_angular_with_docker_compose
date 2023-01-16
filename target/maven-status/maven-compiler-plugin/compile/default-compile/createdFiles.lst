@@ -1,0 +1,4 @@
+com/example/demo/repository/HelloWorldRepository.class
+com/example/demo/DemoApplication.class
+com/example/demo/web/HelloWorldController.class
+com/example/demo/services/HelloWorldService.class

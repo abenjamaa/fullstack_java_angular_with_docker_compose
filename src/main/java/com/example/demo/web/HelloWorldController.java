@@ -1,22 +1,35 @@
 package com.example.demo.web;
 
-import com.example.demo.services.HelloWorldService;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.repository.domain.User;
+import com.example.demo.services.UserService;
+import com.example.demo.services.dto.UserDto;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
-@RequestMapping("/v1/hello-world")
+@RequestMapping("/v1/users")
 public class HelloWorldController {
-    private final HelloWorldService helloWorldService;
+    private final UserService userService;
 
-    public HelloWorldController(HelloWorldService helloWorldService) {
-        this.helloWorldService = helloWorldService;
+    public HelloWorldController(UserService userService) {
+        this.userService = userService;
     }
 
 
-    @RequestMapping("/{id}")
-    public String sayHello(@PathVariable Long id){
-        return helloWorldService.helloWorld(id).toString();
+    @GetMapping("/{id}")
+    public UserDto findUserById(@PathVariable Long id){
+        return userService.getUser(id);
     }
+
+    @GetMapping("/")
+    public List<UserDto> getAllHelloUser(){
+        return userService.getAllUsers();
+    }
+
+    @PostMapping("/add-user")
+    public UserDto addUser(@RequestBody UserDto userDto){
+        return userService.saveUser(userDto);
+    }
+
 }

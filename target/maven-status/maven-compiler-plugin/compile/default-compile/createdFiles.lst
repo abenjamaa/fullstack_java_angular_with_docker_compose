@@ -1,4 +1,8 @@
-com/example/demo/repository/HelloWorldRepository.class
 com/example/demo/DemoApplication.class
+com/example/demo/repository/UserRepository.class
+com/example/demo/services/UserMapperImpl.class
+com/example/demo/services/UserMapper.class
+com/example/demo/services/UserService.class
 com/example/demo/web/HelloWorldController.class
-com/example/demo/services/HelloWorldService.class
+com/example/demo/repository/domain/User.class
+com/example/demo/services/dto/UserDto.class
